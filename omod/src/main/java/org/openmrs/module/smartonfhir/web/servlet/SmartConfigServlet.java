@@ -26,8 +26,8 @@ public class SmartConfigServlet extends HttpServlet {
 	
 	public SmartConfigServlet() {
 		this.smartConformance = new SmartConformance();
-		smartConformance.setAuthorizationEndpoint("https://ehr.example.com/auth/authorize");
-		smartConformance.setTokenEndpoint("https://ehr.example.com/auth/token");
+		smartConformance.setAuthorizationEndpoint("http://localhost:8180/auth/realms/openmrs/protocol/openid-connect/auth");
+		smartConformance.setTokenEndpoint("http://localhost:8180/auth/realms/openmrs/protocol/openid-connect/token");
 		smartConformance.setTokenEndpointAuthMethodsSupported(new String[] { "client_secret_basic" });
 		smartConformance.setRegistrationEndpoint("https://ehr.example.com/auth/register");
 		smartConformance.setScopesSupported(
@@ -36,8 +36,8 @@ public class SmartConfigServlet extends HttpServlet {
 		smartConformance.setManagementEndpoint("https://ehr.example.com/user/manage");
 		smartConformance.setIntrospectionEndpoint("https://ehr.example.com/user/introspect");
 		smartConformance.setRevocationEndpoint("https://ehr.example.com/user/revoke");
-		smartConformance.setCapabilities(new String[] { "launch-ehr", "client-public", "client-confidential-symmetric",
-		        "context-ehr-patient", "sso-openid-connect" });
+		smartConformance.setCapabilities(new String[] { "launch-standalone", "launch-ehr", "client-public",
+		        "client-confidential-symmetric", "context-ehr-patient", "sso-openid-connect" });
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
