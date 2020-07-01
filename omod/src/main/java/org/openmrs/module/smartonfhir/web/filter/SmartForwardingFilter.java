@@ -38,7 +38,7 @@ public class SmartForwardingFilter implements Filter {
 			}
 		}
 		
-		((HttpServletResponse) res).sendError(HttpServletResponse.SC_NOT_FOUND);
+		chain.doFilter(req, res);
 	}
 	
 	@Override
